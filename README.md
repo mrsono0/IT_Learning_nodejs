@@ -5,22 +5,12 @@ node.js bootstrap vue.js express
 
 - Docker base javascript node.js example project  
 
-- IDE : vscode + 분석 라이브러리
+- jupyter
 
 ```
-    docker build -f Dockerfile.ide --tag mrsono0/IT_learning_nodejs:ide .
-    docker run --rm -itd -p 33890:3389 -p 2222:22 mrsono0/IT_learning_nodejs:ide
-    docker tag IT_learning_nodejs:ide mrsono0/IT_learning_nodejs:ide
-    docker push mrsono0/IT_learning_nodejs:ide
-```
-
-- jupyter + 분석 라이브러리
-
-```
-    docker build -f Dockerfile.jupyterlab --tag mrsono0/IT_learning_nodejs:jupyterlab .
-    docker run --rm -it -p 8888:8888 -p 2222:22 -e JUPYTER_ENABLE_LAB=yes mrsono0/IT_learning_nodejs:jupyterlab
-    docker tag IT_learning_nodejs:jupyterlab mrsono0/IT_learning_nodejs:jupyterlab
-    docker push mrsono0/IT_learning_nodejs:jupyterlab
+    docker build -f Dockerfile.jupyter --tag mrsono0/IT_learning_nodejs:jupyter .
+    docker run --rm -it -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes mrsono0/IT_learning_nodejs:jupyter
+    docker push mrsono0/IT_learning_nodejs:jupyter
 ```
 
 - docker compose cli command

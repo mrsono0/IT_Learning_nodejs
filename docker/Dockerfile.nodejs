@@ -1,0 +1,12 @@
+FROM mrsono0/base_project:base_dev_disco
+
+RUN npm install -g npx
+RUN npm install -g --save-dev typescript ts-loader npm-run-all webpack @types/express nodemon webpack-cli
+RUN npm install -g --save express source-map-support
+RUN npm i d3
+RUN npm i eclairjs
+RUN npm i apache-spark-node
+RUN npm i koalanlp
+RUN npm install -g node-sass
+
+WORKDIR /workspace

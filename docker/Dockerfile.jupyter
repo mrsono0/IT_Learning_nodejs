@@ -1,4 +1,4 @@
-FROM mrsono0/base_project:ide_mate
+FROM mrsono0/base_project:jupyter_bionic
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN sed -i "s/archive.ubuntu.com/mirror.kakao.com/g" /etc/apt/sources.list
@@ -6,21 +6,26 @@ RUN sed -i "s/archive.canonical.com/mirror.kakao.com/g" /etc/apt/sources.list
 RUN sed -i "s/security.ubuntu.com/mirror.kakao.com/g" /etc/apt/sources.list
 RUN sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list
 RUN apt-get -y update && \
-    # apt-get -yy upgrade && \
-    apt-get -y install gcc cmake
+    apt-get -yy upgrade
 
-RUN /opt/conda/bin/conda install conda python=3.6.8 --yes
+RUN npm install -g koalanlp
+RUN npm install -g tensorflow
+RUN npm install -g @tensorflow/tfjs
+RUN npm install -g keras-js
+RUN npm install -g scikit-node
+RUN npm install -g apache-spark-node
+RUN npm install -g eclairjs
+RUN npm install -g pandas-js 
+RUN npm install -g lapack
+RUN npm install -g pyextjs
 
-ENV CONDA_PACKAGES="\
-    tensorflow \
-    keras \
-    pyspark"
-RUN /opt/conda/bin/conda install ${CONDA_PACKAGES} python=3.6.8 --yes && \
-  conda clean --yes --all
-
-ENV PIP_PACKAGES="\
-    koalanlp" 
-RUN pip install -U -v ${PIP_PACKAGES}
+RUN npm install -g commander
+RUN npm install -g npx
+RUN npm install -g typescript ts-loader npm-run-all webpack @types/express nodemon webpack-cli
+RUN npm install -g express source-map-support
+RUN npm install -g d3
+RUN npm install -g eclairjs
+RUN npm install -g node-sass
 
 WORKDIR /root
 RUN git clone https://github.com/kakao/khaiii.git
@@ -32,9 +37,9 @@ RUN make all
 RUN make resource
 # RUN make large_resource
 RUN make install
-RUN make package_python
-WORKDIR /root/khaiii/build/package_python
-RUN pip install .
+# RUN make package_python
+# WORKDIR /root/khaiii/build/package_python
+# RUN pip install .
 # from koalanlp.Util import initialize
 # 꼬꼬마와 ETRI 분석기의 2.0.4 버전을 참조합니다.
 # initialize(java_options="-Xmx4g", KKMA="2.0.4", ETRI="2.0.4")
