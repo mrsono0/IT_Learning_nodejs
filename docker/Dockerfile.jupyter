@@ -8,25 +8,26 @@ RUN sed -i "s/# deb-src/deb-src/g" /etc/apt/sources.list
 RUN apt-get -y update && \
     apt-get -yy upgrade
 
-RUN npm install -g koalanlp
-RUN npm install -g tensorflow
-RUN npm install -g @tensorflow/tfjs
-RUN npm install -g keras-js
-RUN npm install -g scikit-node
-RUN npm install -g apache-spark-node
-RUN npm install -g eclairjs
-RUN npm install -g pandas-js 
-RUN npm install -g lapack
-RUN npm install -g pyextjs
+# RUN npm install -g koalanlp
+# RUN npm install -g tensorflow
+# RUN npm install -g @tensorflow/tfjs
+# RUN npm install -g keras-js
+# RUN npm install -g scikit-node
+# RUN npm install -g apache-spark-node
+# RUN npm install -g eclairjs
+# RUN npm install -g pandas-js 
+# RUN npm install -g lapack
+# RUN npm install -g pyextjs
 
-RUN npm install -g commander
-RUN npm install -g npx
-RUN npm install -g typescript ts-loader npm-run-all webpack @types/express nodemon webpack-cli
-RUN npm install -g express source-map-support
-RUN npm install -g d3
-RUN npm install -g eclairjs
-RUN npm install -g node-sass
-RUN npm install -g sqlite3
+# RUN npm install -g commander
+# RUN npm install -g npx
+# RUN npm install -g typescript ts-loader npm-run-all webpack @types/express nodemon webpack-cli
+# RUN npm install -g express source-map-support
+# RUN npm install -g d3
+# RUN npm install -g eclairjs
+# RUN npm install -g node-sass
+# RUN npm install -g sqlite3
+
 RUN npm install -g request-promise request
 
 WORKDIR /root
@@ -39,6 +40,7 @@ RUN make all
 RUN make resource
 # RUN make large_resource
 RUN make install
+
 # RUN make package_python
 # WORKDIR /root/khaiii/build/package_python
 # RUN pip install .
