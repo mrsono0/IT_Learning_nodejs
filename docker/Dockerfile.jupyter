@@ -26,6 +26,8 @@ RUN npm install -g express source-map-support
 RUN npm install -g d3
 RUN npm install -g eclairjs
 RUN npm install -g node-sass
+RUN npm install -g sqlite3
+RUN npm install -g request-promise request
 
 WORKDIR /root
 RUN git clone https://github.com/kakao/khaiii.git
